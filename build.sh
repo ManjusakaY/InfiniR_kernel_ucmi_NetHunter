@@ -6,7 +6,7 @@
 # This script is used to build android kernel for mi10 #
 # ===----------------------------------------------=== #
 
-KERNEL_VERSION="2.1"
+KERNEL_VERSION="2.2"
 
 # ===------------=== #
 # Clone Dependencies #
@@ -150,6 +150,9 @@ make ${args} 2>&1
 echo "[!] compiling modules"
 make ${args} INSTALL_MOD_PATH="." INSTALL_MOD_STRIP=1 modules_install
 
+echo "[!] clean dirs"
+rm -rf KernelSU
+
 # ===-----------------------------=== #
 # | Create NetHunter-Anykernel3 Zip | #
 # ===-----------------------------=== #
@@ -158,7 +161,7 @@ echo "[+] start packaging"
 
 O=out
 ARCH=arm64
-KERNEL_VERSION="4.19.306-InfiniR-NetHunter"
+KERNEL_VERSION="4.19.306-InfiniR-X-NetHunter"
 DEVICE=ucmi
 ANDROID_VERSION=thirteen
 
